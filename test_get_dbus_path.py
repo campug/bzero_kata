@@ -1,4 +1,5 @@
 import unittest
+# from solutions import bluezero
 import bluezero
 
 
@@ -57,6 +58,9 @@ class GetPathTest(unittest.TestCase):
                                                 '00002902-0000-1000-8000-00805f9b34fb'),
                          '/org/bluez/hci0/dev_FD_6B_11_CD_4A_9B/service0031/char0032/desc0034')
 
+    def test_descriptor_only(self):
+        self.assertRaises(bluezero.InvalidSearch,
+                          bluezero.get_dbus_path, descriptor='00002902-0000-1000-8000-00805f9b34fb')
 
 if __name__ == '__main__':
     unittest.main()
